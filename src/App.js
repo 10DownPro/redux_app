@@ -1,6 +1,6 @@
 
 import { useDispatch, useSelector } from 'react-redux';
-import { AddTaskAction } from './actions/taskActions';
+import { AddTaskAction, RemoveTaskAction } from './actions/taskActions';
 import { useState } from 'react';
 import './App.css';
 
@@ -15,6 +15,10 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(AddTaskAction(task));
+  };
+
+  const removeHandler = (t) => {
+    dispatch(RemoveTaskAction(t));
   };
 
   return <>
@@ -56,7 +60,11 @@ function App() {
                     border: "1px solid white",
                     color: "white",
                     backgroundColor: "orangered",
-                  }}>Delete</button>
+                  }}
+                  onClick={() => removeHandler(t)}
+                >
+                    
+                    Delete</button>
               </li>
             ))
           }

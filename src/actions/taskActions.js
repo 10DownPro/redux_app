@@ -6,7 +6,7 @@ export const AddTaskAction= (task) => (dispatch, getState) => {
 
     const hasTasks = tasks.find((i) => i.task === task);
 
-    if(!hasTasks && task !== "") {
+    if(!hasTasks && task !== '') {
         dispatch({
             type: "ADD_TASK",
             payload: [ { id: tasks, task }, ...tasks]
@@ -17,7 +17,7 @@ export const AddTaskAction= (task) => (dispatch, getState) => {
 
 export const RemoveTaskAction=(task)=>(dispatch, getState) => {
     const {
-        toDo: { tasks },
+        Task: { tasks },
     } = getState();
 
     dispatch({
